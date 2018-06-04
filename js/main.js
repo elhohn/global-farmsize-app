@@ -29,9 +29,9 @@
 
         REFRESH_DELAY = 0, // Delay in seconds between checks for data. 0 to disable.
 
-        // TOOLTIP_DESCRIPTION = function (vtd) {
-        //     return 'Ward ' + vtd.ward;
-        // },
+        TOOLTIP_DESCRIPTION = function (vtd) {
+            return 'Number of Crops: ' + vtd.ward;
+        },
 
         AVAILABLE_FILTERS = {
             black: {
