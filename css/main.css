@@ -390,7 +390,7 @@ a.action:hover {
     color: #636160;
     margin: 0;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: lighter;
 }
 
 .options ul {
@@ -521,6 +521,11 @@ footer a { color: #363433; }
 
 .leaflet-container {
     background: none;
+}
+
+.leaflet-top {
+  top: 50px;
+  
 }
 
 

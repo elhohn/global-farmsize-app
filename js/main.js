@@ -289,16 +289,18 @@
         this.vtdData = this.vtdData || {};
 
         this.superclass(el, {
-            dragging: false,
-            touchZoom: false,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
+            dragging: true,
+            touchZoom: true,
+            scrollWheelZoom: true,
+            doubleClickZoom: true,
             boxZoom: false,
             tap: false,
             keyboard: false,
             zoomControl: false,
             attributionControl: false
         });
+
+        this.zoomControl = L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
         this.marginCircles = L.layerGroup().addTo(map);
 
@@ -325,7 +327,7 @@
             map.vtds = L.geoJson(topojson.feature(json, json.objects.countries1), {
                 style: {
                     color: '#E8E6E5',
-                    opacity: 1,
+                    opacity: .8,
                     weight: 2,
                     fillColor: '#D4D1D0',
                     fillOpacity: 1
@@ -335,10 +337,14 @@
 
                     function cutscores(d) {
                         /*jslint white: true */
-                        return d > 0.8 ? 1    :
-                               d > 0.7 ? 0.75 :
-                               d > 0.6 ? 0.5  :
-                                         0.25 ;
+                        // return d > 0.8 ? 1    :
+                        //        d > 0.7 ? 0.75 :
+                        //        d > 0.6 ? 0.5  :
+                        //                  0.25 ;
+                        return d > 0.95 ? 1    :
+                               d > 0.9 ? 0.95 :
+                               d > 0.85 ? 0.9  :
+                                         0.8 ;
                     }
 
                     displayWinner = function () {
