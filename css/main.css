@@ -325,7 +325,7 @@ a.action:hover {
 }
 
 #candidates.initiative .table-header .name {
-    visibility: hidden;
+    visibility: visible;
 }
 
 #candidates.initiative a.action {

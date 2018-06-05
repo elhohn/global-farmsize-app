@@ -1,4 +1,4 @@
-id,name,initiative,winner
-total,Total,,
-food,Food,,
-grossarea,Gross Area,,
+id,name,initiative,winner,,,
+total,Total,Total crop production in kcal/capita/day.,,,,"We converted all tonnes of production to their kilocalorie (kcal/capita/day) equivalents using the UN FAO's conversion values per crop per country per year. We then applied the percent of feed, food, processing, seed, waste, or ‘other’ based on FAOSTAT's food balance sheets per crop per country per year. For example, in many countries maize can be used for human consumption, animal feed, a processed biofuel commodity, and seed, while some maize may be lost due to storage and transportation."
+food,Food,Food production in kcal/capita/day.,,,,
+grossarea,Gross Area,Gross Area in ha,,,,

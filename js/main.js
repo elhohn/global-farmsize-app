@@ -124,6 +124,7 @@
 
             data.updateAll(function (data) {
                 app.globals.contest = data.contests[0].id;
+                app.globals.initiative = data.contests[0].initiative;
                 app.globals.filteredVTDs = app.filter.filteredVTDs(data.vtd);
 
                 app.navigation = new Navigation('navigation', data.contests);
@@ -163,7 +164,7 @@
 
                 app.filter.onChange = function () {
                     app.globals.filteredVTDs = app.filter.filteredVTDs(data.vtd);
-                    app.candidates.update(data.results, app.globals);
+                    app.candidates.update(data.results, app.globals);                    
                     app.map.fireEvent('update', app.globals);
                 };
 
@@ -187,7 +188,7 @@
         this.updateContest(contest);
     };
 
-    Legend.prototype.updateContest = function (contest) {
+    Legend.prototype.updateContest = function (contest, data) {
         var legend = this,
             candidates = _.filter(legend.candidates, function (candidate) {
                 return !(candidate.other) && candidate.contest === contest;
@@ -196,20 +197,24 @@
             header = '<div class="line legend-header"><div class="name"></div><div class="legend-divider"></div></div>';
 
         legend.$el.empty();
+        
 
-        legend.$el.append(header);
+        legend.$el.append('<div class="descripts">').text(app.globals.initiative);
 
-        _.each(candidates, function (candidate) {
-            var div = $('<div class="line">');
 
-            div.append($('<div class="name">').text(candidate.last_name));
-            div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.25)));
-            div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.5)));
-            div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.75)));
-            div.append($('<div class="legend-box">').css('background', candidate.color));
+        // legend.$el.append(header);
 
-            legend.$el.append(div);
-        });
+        // _.each(candidates, function (candidate) {
+        //     var div = $('<div class="line">');
+
+        //     div.append($('<div class="name">').text(candidate.last_name));
+        //     div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.25)));
+        //     div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.5)));
+        //     div.append($('<div class="legend-box">').css('background', interpolateHex(candidate.color, '#D4D1D0', 0.75)));
+        //     div.append($('<div class="legend-box">').css('background', candidate.color));
+
+        //     legend.$el.append(div);
+        // });
     };
 
     data = (function () {
@@ -529,6 +534,7 @@
         return valid.length / results.length;
     };
 
+
     Candidates = function (el, data, globals) {
         var candidates = this,
             $el = $(el);
@@ -570,12 +576,13 @@
         };
     };
 
-    Candidates.prototype.updateContest = function (globals) {
+
+    Candidates.prototype.updateContest = function (globals, data) {
         var sorted,
             candidates = this.contests[globals.contest],
             template = _.template($('#candidate-template').html()),
             $ul = this.$el.find('ul');
-
+        
         this.$el.find('a.action').removeClass('expanded').html('Show more +');
 
         $ul.empty();
