@@ -182,6 +182,12 @@
         }
     };
 
+    $.fn.multiline = function(text){
+       this.text(text);
+        this.html(this.html().replace(/\n/g,'<br/>'));
+        return this;
+    }
+
     Legend = function (el, candidates, contest) {
         this.$el = $(el);
         this.candidates = candidates;
@@ -197,9 +203,12 @@
             header = '<div class="line legend-header"><div class="name"></div><div class="legend-divider"></div></div>';
 
         legend.$el.empty();
-        
 
-        legend.$el.append('<div class="descripts">').text(app.globals.initiative);
+
+        legend.$el.append('<div class="descripts">').html(app.globals.initiative);
+        
+        
+        // legend.$el.append('<div class="descripts">').text(app.globals.initiative);
 
 
         // legend.$el.append(header);
