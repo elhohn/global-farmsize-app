@@ -206,9 +206,6 @@
 
 
         legend.$el.append('<div class="descripts">').html(app.globals.initiative);
-        
-        
-        // legend.$el.append('<div class="descripts">').text(app.globals.initiative);
 
 
         // legend.$el.append(header);
@@ -381,7 +378,8 @@
 
                                 votesCast = _(contestResults).values().reduce(function (memo, pair) { return memo + pair[1]; }, 0);
 
-                                layer.setStyle({ fillColor: interpolateHex(winnerColor, '#D4D1D0', cutscores(winnerTally / votesCast)) });
+                                layer.setStyle({ fillColor: interpolateHex(winnerColor, '#ffffff', cutscores(winnerTally / votesCast)) });
+                                // layer.setStyle({ fillColor: winnerColor});
                             } else {
                                 layer.setStyle({ fillColor: '#D4D1D0' });
                             }
