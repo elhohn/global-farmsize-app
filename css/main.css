@@ -190,7 +190,7 @@ navigation ul {
 navigation ul li {
     display: inline-block;
     margin: 0 4px;
-    overflow-wrap: normal;
+    flex-wrap: wrap;
 }
 
 navigation a {
@@ -485,6 +485,9 @@ footer a { color: #363433; }
     .party      { width: 30%; }
     .votes      { width: 15%; }
     .percentage { width: 15%; }
+
+    h1 { font-size: 18px; }
+    h2 { font-size: 13px; }
 }
 
 @media screen and (max-width: 639px) {
@@ -499,6 +502,9 @@ footer a { color: #363433; }
 
     #map-wrapper { width: 100%; }
     #exhibit div.options { width: 100%; }
+
+    h1 { font-size: 18px; }
+    h2 { font-size: 13px; }
 }
 
 @media screen and (max-width: 479px) {
@@ -509,6 +515,7 @@ footer a { color: #363433; }
     header { height: 80px; }
 
     h1 { font-size: 18px; }
+    h2 { font-size: 15px; }
 
     navigation { width: 100%; text-align: center; }
     #status { width: 100%;}
@@ -516,9 +523,11 @@ footer a { color: #363433; }
     .candidate .headshot { display: none; }
     #candidates .table-header { padding-left: 11px; }
     .candidate .info { padding-left: 11px; }
-    .name       { width: 65%; }
+    .candidate .info .name { font-size: 12px }
+    .name       { width: 45%; line-height: 0.2  }
     .votes      { display: none; }
-    .percentage { width: 35%;}
+    .percentage { width: 55%; line-height: 0.2 }
+    .percentage .value { font-size: 12px }
 }
 
 .leaflet-container {
