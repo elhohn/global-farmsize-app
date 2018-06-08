@@ -155,7 +155,7 @@ h2 {
 a.pill {
     display: block;
     background: #D4D1D0;
-    border-radius: 99px;
+    border-radius: 70px;
 }
 
 a.pill:hover, a.box:hover {
@@ -190,6 +190,7 @@ navigation ul {
 navigation ul li {
     display: inline-block;
     margin: 0 4px;
+    overflow-wrap: normal;
 }
 
 navigation a {
