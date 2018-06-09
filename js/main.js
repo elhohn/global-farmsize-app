@@ -349,21 +349,25 @@
                                     .map(function (v, k) { var pair = []; pair[0] = k; pair[1] = parseInt(v, 10); return pair; })
                                     .sortBy(function (pair) {
                                         return -pair[1];
-                                    }).value(),
-                                winner = contestResults[0][0],
-                                winnerTally = contestResults[0][1],
-                                tie = contestResults[0][1] === contestResults[1][1];
+                                    }).value()
+                            if (typeof contestResults[0] !== 'undefined') {
+                                var winner = contestResults[0][0],
+                                    winnerTally = contestResults[0][1],
+                                    tie = contestResults[0][1] === contestResults[1][1];
 
-                            if (winnerTally && !tie) {
-                                winnerColor = _.findWhere(map.candidates, { id: winner }).color;
-                                winnerColor = winnerColor === '' ? '#D4D1D0' : winnerColor;
+                                if (winnerTally && !tie) {
+                                    winnerColor = _.findWhere(map.candidates, { id: winner }).color;
+                                    winnerColor = winnerColor === '' ? '#D4D1D0' : winnerColor;
 
-                                votesCast = _(contestResults).values().reduce(function (memo, pair) { return memo + pair[1]; }, 0);
+                                    votesCast = _(contestResults).values().reduce(function (memo, pair) { return memo + pair[1]; }, 0);
 
-                                layer.setStyle({ fillColor: interpolateHex(winnerColor, '#ffffff', cutscores(winnerTally / votesCast)) });
+                                    layer.setStyle({ fillColor: interpolateHex(winnerColor, '#ffffff', cutscores(winnerTally / votesCast)) });
+                                } else {
+                                    layer.setStyle({ fillColor: '#D4D1D0' });
+                                }
                             } else {
-                                layer.setStyle({ fillColor: '#D4D1D0' });
-                            }
+                                    layer.setStyle({ fillColor: '#D4D1D0' });
+                                }
                         }
 
                         layer.on({
