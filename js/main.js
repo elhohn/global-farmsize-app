@@ -126,7 +126,6 @@
                 app.globals.contest = data.contests[0].id;
                 app.globals.initiative = data.contests[0].initiative;
                 app.globals.filteredVTDs = app.filter.filteredVTDs(data.vtd);
-
                 app.navigation = new Navigation('navigation', data.contests);
                 app.status = new Status('#status', data.results);
                 app.candidates = new Candidates('#candidates', data, app.globals);
@@ -182,12 +181,6 @@
         }
     };
 
-    $.fn.multiline = function(text){
-       this.text(text);
-        this.html(this.html().replace(/\n/g,'<br/>'));
-        return this;
-    }
-
     Legend = function (el, candidates, contest) {
         this.$el = $(el);
         this.candidates = candidates;
@@ -203,13 +196,8 @@
             header = '<div class="line legend-header"><div class="name"></div><div class="legend-divider"></div></div>';
 
         legend.$el.empty();
-
-
         legend.$el.append('<div class="descripts">').html(app.globals.initiative);
-
-
         // legend.$el.append(header);
-
         // _.each(candidates, function (candidate) {
         //     var div = $('<div class="line">');
 
@@ -310,9 +298,7 @@
             zoomControl: false,
             attributionControl: false
         });
-
         this.zoomControl = L.control.zoom({ position: 'bottomleft' }).addTo(map);
-
         this.marginCircles = L.layerGroup().addTo(map);
 
         function calculateMaxMargin(results, candidates) {
@@ -348,10 +334,6 @@
 
                     function cutscores(d) {
                         /*jslint white: true */
-                        // return d > 0.8 ? 1    :
-                        //        d > 0.7 ? 0.75 :
-                        //        d > 0.6 ? 0.5  :
-                        //                  0.25 ;
                         return d > 0.95 ? 1    :
                                d > 0.9 ? 0.95 :
                                d > 0.85 ? 0.9  :
@@ -379,7 +361,6 @@
                                 votesCast = _(contestResults).values().reduce(function (memo, pair) { return memo + pair[1]; }, 0);
 
                                 layer.setStyle({ fillColor: interpolateHex(winnerColor, '#ffffff', cutscores(winnerTally / votesCast)) });
-                                // layer.setStyle({ fillColor: winnerColor});
                             } else {
                                 layer.setStyle({ fillColor: '#D4D1D0' });
                             }
