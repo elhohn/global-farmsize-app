@@ -290,7 +290,7 @@
         this.superclass(el, {
             dragging: true,
             touchZoom: true,
-            scrollWheelZoom: true,
+            scrollWheelZoom: false,
             doubleClickZoom: true,
             boxZoom: false,
             tap: false,
