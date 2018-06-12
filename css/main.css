@@ -479,8 +479,10 @@ footer a { color: #363433; }
     }
 
     .candidate .info .percentage {
-        padding-top: 13px;
-        font-size: 17px;
+        padding-top: 11px;
+        padding-bottom: 18px;
+        font-size: 12px;
+        line-height: 4px;
     }
 
     .name       { width: 35%; }
@@ -507,6 +509,13 @@ footer a { color: #363433; }
 
     .candidate .info .percentage span.horizontal-bar {display: inherit; }
 
+    .candidate .info .percentage {
+        padding-top: 11px;
+        padding-bottom: 18px;
+        font-size: 12px;
+        line-height: 4px;
+    }
+
     h1 { font-size: 18px; }
     h2 { font-size: 13px; }
 }
@@ -531,8 +540,15 @@ footer a { color: #363433; }
     .name       { width: 45%; }
     /*.votes      { display: none; }*/
     .percentage { width: 55%; }
-    .percentage span.value { font-size: 12px; padding-top: 20px; display: inherit;  box-sizing:  ;}
+    /*.percentage span.value { font-size: 12px; padding-top: 20px; display: inherit; }*/
     .candidate .info .percentage span.horizontal-bar {display: inherit; }
+
+    .candidate .info .percentage {
+        padding-top: 11px;
+        padding-bottom: 18px;
+        font-size: 12px;
+        line-height: 4px;
+    }
 }
 
 .leaflet-container {
