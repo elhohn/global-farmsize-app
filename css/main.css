@@ -265,7 +265,8 @@ div.revealer { margin: 0 -3px; padding: 0 3px; }
 }
 
 .candidate .color {
-    width: 20px; height: 44px;
+    width: 20px; 
+    height: 44px;
     position: absolute;
     left: 0;
 }
@@ -336,6 +337,7 @@ a.action:hover {
 
 #hover-label {
     position: absolute;
+    z-index: 200; 
 }
 
 #hover-label .vtd-name {
@@ -473,7 +475,7 @@ footer a { color: #363433; }
     }
 
     .candidate .info .percentage span.horizontal-bar {
-        display: none;
+        display: inherit;
     }
 
     .candidate .info .percentage {
@@ -498,10 +500,12 @@ footer a { color: #363433; }
     #legend .name { width: 35%; }
     .party        { display: none; }
     .votes        { width: 25%; }
-    .percentage   { width: 25%; }
+    .percentage   { width: 45%; }
 
     #map-wrapper { width: 100%; }
     #exhibit div.options { width: 100%; }
+
+    .candidate .info .percentage span.horizontal-bar {display: inherit; }
 
     h1 { font-size: 18px; }
     h2 { font-size: 13px; }
@@ -517,17 +521,18 @@ footer a { color: #363433; }
     h1 { font-size: 18px; }
     h2 { font-size: 15px; }
 
-    navigation { width: 100%; text-align: center; }
+    /*navigation { width: 100%; text-align: center; }*/
     #status { width: 100%;}
 
     .candidate .headshot { display: none; }
-    #candidates .table-header { padding-left: 11px; }
+    #candidates .table-header { padding-left: 11px; height: 44px; padding-bottom: 0px; }
     .candidate .info { padding-left: 11px; }
     .candidate .info .name { font-size: 12px }
-    .name       { width: 45%; line-height: 0.2  }
-    .votes      { display: none; }
-    .percentage { width: 55%; line-height: 0.2 }
-    .percentage .value { font-size: 12px }
+    .name       { width: 45%; }
+    /*.votes      { display: none; }*/
+    .percentage { width: 55%; }
+    .percentage span.value { font-size: 12px; padding-top: 20px; display: inherit;  box-sizing:  ;}
+    .candidate .info .percentage span.horizontal-bar {display: inherit; }
 }
 
 .leaflet-container {
